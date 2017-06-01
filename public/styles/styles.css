@@ -26,6 +26,11 @@ body {
 #garage-door {
 }
 
-#garage {
+.garage {
+  display: none;
   margin: 20px;
+}
+
+.garage-open {
+  display: flex;
 }

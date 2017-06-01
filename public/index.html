@@ -14,7 +14,7 @@
 
     <div class="garage-container">
       <div id="garage-door">Open Garage Door</div>
-      <section id="garage">
+      <section class="garage">
         <div id="inventory-header">
           <p id="garage-total"><span class="total-items"></span> Total Items</p>
           <p id="sparkling-items"><span class="total-sparkling"></span> sparkling</p>
@@ -25,14 +25,14 @@
         <div id="garage-inventory"></div>
         <div id="item-detail"></div>
         <form id="new-item">
-          <input type="text" name="name" placeholder="name">
-          <input type="text" name="reason" placeholder="reason">
-          <select class="cleanliness-select" name="cleanliness">
+          <input id="name-input" type="text" name="name" placeholder="name">
+          <input id="reason-input" type="text" name="reason" placeholder="reason">
+          <select id="cleanliness-select" name="cleanliness">
             <option value="sparkling">sparkling</option>
             <option value="dusty">dusty</option>
             <option value="rancid">rancid</option>
           </select>
-          <button id="add-new-item" type="submit" name="button">Add To Garage</button>
+          <button id="add-new-item" type="submit" name="button" disabled>Add To Garage</button>
         </form>
       </section>
     </div>
