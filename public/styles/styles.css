@@ -34,3 +34,7 @@ body {
 .garage-open {
   display: flex;
 }
+
+.stats:hover {
+  cursor: pointer;
+}
