@@ -11,13 +11,41 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.set('port', process.env.PORT || 3000);
-app.locals.title = 'garage_bin';
+app.locals.title = 'garage-bin';
 
 app.get('/', (request, response) => {
   fs.readFile(`${__dirname}/index.html`, (err, file) => {
     response.send(file);
   });
 });
+
+app.get('/api/v1/garage', (request, response) => {
+  database('garage').select()
+  .then(items => response.status(200).json(items))
+  .catch(error => response.sendStatus(500));
+})
+
+app.get('/api/v1/garage/:id', (request, response) => {
+  database('garage').where({ id: request.params.id }).select()
+  .then(item => {
+    item.length? response.status(200).json(item): response.sendStatus(404);
+  })
+  .catch(error => response.sendStatus(404));
+})
+
+app.post('/api/v1/garage', (request, response) => {
+  const validItem = ['name', 'reason', 'cleanliness'].every(prop => request.body.hasOwnProperty(prop));
+  const item = request.body;
+
+  if (validItem) {
+    database('garage').insert(item, ['id', 'name', 'reason', 'cleanliness'])
+      .then(item => response.status(201).json(item[0]))
+      .catch(error => response.sendStatus(422));
+  } else {
+    response.sendStatus(422);
+  }
+})
+
 
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on ${app.get('port')}.`);
