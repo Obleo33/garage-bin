@@ -4,10 +4,38 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="styles/reset.css">
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,400,700">
     <title>Garage Bin</title>
   </head>
   <body>
-    <div>HEY!!</div>
+    <header class="title-bar">
+      <h1 id="title">Garage Bin</h1>
+    </header>
+
+    <div class="garage-container">
+      <div id="garage-door">Open Garage Door</div>
+      <section id="garage">
+        <div id="inventory-header">
+          <p id="garage-total"><span class="total-items"></span> Total Items</p>
+          <p id="sparkling-items"><span class="total-sparkling"></span> sparkling</p>
+          <p id="dusty-items"><span class="total-dusty"></span> dusty</p>
+          <p id="rancid-items"><span class="total-rancid"></span> rancid</p>
+        </div>
+
+        <div id="garage-inventory"></div>
+        <div id="item-detail"></div>
+        <form id="new-item">
+          <input type="text" name="name" placeholder="name">
+          <input type="text" name="reason" placeholder="reason">
+          <select class="cleanliness-select" name="cleanliness">
+            <option value="sparkling">sparkling</option>
+            <option value="dusty">dusty</option>
+            <option value="rancid">rancid</option>
+          </select>
+          <button id="add-new-item" type="submit" name="button">Add To Garage</button>
+        </form>
+      </section>
+    </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/jquery-3.2.1.min.js"><\/script>')</script>
