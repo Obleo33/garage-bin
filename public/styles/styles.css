@@ -1,3 +1,31 @@
 body {
   text-align: center;
+  font-family: 'Josefin Sans', sans-serif; /* 100, 400, 700*/
+}
+
+.title-bar {
+  height: 100px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hotpink;
+
+}
+
+#title {
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.garage-container {
+  display: flex;
+  justify-content: center;
+}
+
+#garage-door {
+}
+
+#garage {
+  margin: 20px;
 }
