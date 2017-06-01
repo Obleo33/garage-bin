@@ -26,20 +26,40 @@ const addItem = (name, reason, cleanliness) =>  {
     })
 }
 
+const getByID = (id) => {
+
+}
+
 const showAllItems = (items) => {
-  console.log(itemsArr);
   $("#garage-inventory").empty()
   garageNumbers()
   items.map(item => {
     $('#garage-inventory').append(`
-      <div class="item-card">
-        <h2 id="${item.id}" name="${item.id}" class="item-name">${item.name}</h2>
+      <div class="garage-list-item">
+        <h3 id="${item.id}" class="item-name">${item.name}</h3>
       </div>
     `)
   })
 }
 
-const updateGarageStats = ({ total, Sparkling, Dusty, Rancid }) => {
+$('#garage-inventory').on('click', $('.item-name'), (e) => {
+  $('#item-detail').empty()
+
+  fetch(`/api/v1/garage/${e.target.id}`)
+  .then(response => response.json())
+  .then(array => array[0])
+  .then(item => {
+    $('#item-detail').append(`
+      <div class="item-card">
+        <h2>${item.name}</h2>
+        <p>${item.reason}</p>
+        <p>${item.cleanliness}</p>
+      </div>
+    `)
+  })
+})
+
+const updateGarageStats = ({ total = 0, Sparkling = 0, Dusty = 0, Rancid = 0 }) => {
   $('.total-items').text(total)
   $('.total-sparkling').text(Sparkling)
   $('.total-dusty').text(Dusty)
@@ -57,8 +77,30 @@ const garageNumbers = () => {
 
     return garageStats
   },{total:0})
-  console.log(garageObj);
   updateGarageStats(garageObj)
+}
+
+$('#inventory-header').click((e) => {
+  switch (e.target.id) {
+    case 'garage-total':
+      orderBy('name');
+    case 'sparkling-items':
+      orderBy('cleanliness', 'Sparkling');
+    case 'dusty-items':
+      orderBy('cleanliness', 'Dusty');
+    case 'rancid-items':
+      orderBy('cleanliness', 'Rancid');
+  }
+})
+
+const orderBy = (type, value) => {
+  itemsArr = itemsArr.sort((a,b) => {
+    if (type === 'name'){
+      return a.type - b.type
+    }
+  })
+
+  showAllItems(itemsArr)
 }
 
 $('#garage-door').click(() => {
@@ -68,6 +110,7 @@ $('#garage-door').click(() => {
     $('#garage-door').text('Close Garage Door')
     showAllItems(itemsArr)
     $('.garage').toggleClass('garage-open')
+    $('#item-detail').empty()
   } else {
     $('#garage-door').text('Open Garage Door')
     $('.garage').toggleClass('garage-open')
