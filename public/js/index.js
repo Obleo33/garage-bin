@@ -39,14 +39,31 @@ const showAllItems = (items) => {
   })
 }
 
+const updateGarageStats = ({ total, Sparkling, Dusty, Rancid }) => {
+  $('.total-items').text(total)
+  $('.total-sparkling').text(Sparkling)
+  $('.total-dusty').text(Dusty)
+  $('.total-rancid').text(Rancid)
+}
+
 const garageNumbers = () => {
-  let nubers = itemsArr.reduce((numbers, item) => {
-    
-  })
+  let garageObj = itemsArr.reduce((garageStats, item) => {
+    if(!garageStats[item.cleanliness]){
+      garageStats[item.cleanliness] = 0
+    }
+
+    garageStats[item.cleanliness] ++
+    garageStats.total ++
+
+    return garageStats
+  },{total:0})
+  console.log(garageObj);
+  updateGarageStats(garageObj)
 }
 
 $('#garage-door').click(() => {
   doorOpen = !doorOpen
+
   if (doorOpen) {
     $('#garage-door').text('Close Garage Door')
     showAllItems(itemsArr)
