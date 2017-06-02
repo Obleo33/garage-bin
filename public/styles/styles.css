@@ -1,105 +1,104 @@
 body {
-  text-align: center;
-  font-family: 'Josefin Sans', sans-serif; /* 100, 400, 700*/
+  text-align  : center;
+  font-family : 'Josefin Sans',
+                sans-serif;
 }
 
 .title-bar {
-  height: 100px;
-  border: 1px solid black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: hotpink;
-
+  display          : flex;
+  height           : 100px;
+  border           : 1px solid black;
+  background-color : hotpink;
+  align-items      : center;
+  justify-content  : center;
 }
 
 #title {
-  font-size: 50px;
-  font-weight: 700;
+  font-size   : 50px;
+  font-weight : 700;
 }
 
 .garage-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display         : flex;
+  align-items     : center;
+  flex-direction  : column;
+  justify-content : center;
 }
 
 #garage-door {
-  padding-top: 15px;
-  margin: 20px auto;
-  height: 30px;
-  width: 300px;
-  border: 1px solid black;
+  width       : 300px;
+  height      : 30px;
+  margin      : 20px auto;
+  padding-top : 15px;
+  border      : 1px solid black;
 }
 
 #garage-door:hover {
-  cursor: pointer;
+  cursor : pointer;
 }
 
 .garage {
-  display: none;
-  margin: 20px;
+  display : none;
+  margin  : 20px;
 }
 
 .garage-open {
-  display: flex;
-  flex-direction: column;
+  display        : flex;
+  flex-direction : column;
 }
 
 #inventory-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
+  display         : flex;
+  margin-bottom   : 10px;
+  align-items     : center;
+  justify-content : space-between;
 }
 
 .stats {
-  font-size: 18px;
-  font-weight: 100;
+  font-size   : 18px;
+  font-weight : 100;
 }
 
-.stats span{
-  font-weight: 700
+.stats span {
+  font-weight : 700;
 }
 
 .stats:hover {
-  cursor: pointer;
+  cursor : pointer;
 }
 
 #garage-inventory {
-  border: 1px solid black;
+  border : 1px solid black;
 }
 
 .garage-list-item {
-  border: 1px solid black;
-  margin: 10px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display         : flex;
+  height          : 30px;
+  margin          : 10px;
+  border          : 1px solid black;
+  align-items     : center;
+  justify-content : center;
 }
 
 .item-name {
-  font-weight: 400;
-
+  font-weight : 400;
 }
 
 #item-detail {
-  margin: 20px;
+  margin : 20px;
 }
 
 .item-card {
-  border: 1px solid black;
-  text-transform: uppercase;
+  border         : 1px solid black;
+  text-transform : uppercase;
 }
 
 .item-card {
-  padding: 10px;
-  font-weight: 400;
+  padding     : 10px;
+  font-weight : 400;
 }
 
 .item-card span {
-  font-size: 13px;
-  font-weight: 100;
+  font-size   : 13px;
+  font-weight : 100;
 }

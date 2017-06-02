@@ -38,6 +38,12 @@ app.get('/api/v1/garage/:id', (request, response) => {
   .catch(error => response.status(404).send(error));
 });
 
+app.get('/api/v1/sortbyname', (request, response) => {
+  database('garage').orderBy('name', 'asc').select()
+  .then(items => response.status(200).json(items))
+  .catch(error => response.status(500).send(error));
+});
+
 app.post('/api/v1/garage', (request, response) => {
   const validItem = ['name', 'reason', 'cleanliness'].every(prop => request.body.hasOwnProperty(prop));
   const item = request.body;
