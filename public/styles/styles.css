@@ -26,7 +26,15 @@ body {
 }
 
 #garage-door {
+  padding-top: 15px;
   margin: 20px auto;
+  height: 30px;
+  width: 300px;
+  border: 1px solid black;
+}
+
+#garage-door:hover {
+  cursor: pointer;
 }
 
 .garage {
@@ -74,9 +82,24 @@ body {
 
 .item-name {
   font-weight: 400;
-  
+
 }
 
 #item-detail {
   margin: 20px;
+}
+
+.item-card {
+  border: 1px solid black;
+  text-transform: uppercase;
+}
+
+.item-card {
+  padding: 10px;
+  font-weight: 400;
+}
+
+.item-card span {
+  font-size: 13px;
+  font-weight: 100;
 }
