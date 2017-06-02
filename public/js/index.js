@@ -76,28 +76,14 @@ const garageNumbers = () => {
   updateGarageStats(garageObj)
 }
 
-$('#inventory-header').click((e) => {
-  switch (e.target.id) {
-    case 'garage-total':
-      orderBy('name');
-    case 'sparkling-items':
-      orderBy('cleanliness', 'Sparkling');
-    case 'dusty-items':
-      orderBy('cleanliness', 'Dusty');
-    case 'rancid-items':
-      orderBy('cleanliness', 'Rancid');
-  }
+$('#sort-button').click(()=> {
+  console.log('clicked');
+  fetch('/api/v1/sortbyname')
+    .then(response => response.json())
+    .then(items => itemsArr = items)
+    .then(() => showAllItems(itemsArr))
+    .catch(error => console.log(error))
 })
-
-const orderBy = (type, value) => {
-  itemsArr = itemsArr.sort((a,b) => {
-    if (type === 'name'){
-      return a.type - b.type
-    }
-  })
-
-  showAllItems(itemsArr)
-}
 
 $('#garage-door').click(() => {
   doorOpen = !doorOpen
