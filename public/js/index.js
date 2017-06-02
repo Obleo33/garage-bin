@@ -26,13 +26,8 @@ const addItem = (name, reason, cleanliness) =>  {
     })
 }
 
-const getByID = (id) => {
-
-}
-
 const showAllItems = (items) => {
   $("#garage-inventory").empty()
-  garageNumbers()
   items.map(item => {
     $('#garage-inventory').append(`
       <div class="garage-list-item">
@@ -40,6 +35,7 @@ const showAllItems = (items) => {
       </div>
     `)
   })
+  garageNumbers()
 }
 
 $('#garage-inventory').on('click', $('.item-name'), (e) => {
@@ -51,9 +47,9 @@ $('#garage-inventory').on('click', $('.item-name'), (e) => {
   .then(item => {
     $('#item-detail').append(`
       <div class="item-card">
-        <h2>${item.name}</h2>
-        <p>${item.reason}</p>
-        <p>${item.cleanliness}</p>
+        <h2><span>Name: </span>${item.name}</h2>
+        <p><span>Reason: </span>${item.reason}</p>
+        <p><span>Cleanliness: </span>${item.cleanliness}</p>
       </div>
     `)
   })
