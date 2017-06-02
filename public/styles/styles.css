@@ -20,10 +20,13 @@ body {
 
 .garage-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
 #garage-door {
+  margin: 20px auto;
 }
 
 .garage {
@@ -33,8 +36,47 @@ body {
 
 .garage-open {
   display: flex;
+  flex-direction: column;
+}
+
+#inventory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.stats {
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.stats span{
+  font-weight: 700
 }
 
 .stats:hover {
   cursor: pointer;
+}
+
+#garage-inventory {
+  border: 1px solid black;
+}
+
+.garage-list-item {
+  border: 1px solid black;
+  margin: 10px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-name {
+  font-weight: 400;
+  
+}
+
+#item-detail {
+  margin: 20px;
 }

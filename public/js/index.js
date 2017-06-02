@@ -26,10 +26,6 @@ const addItem = (name, reason, cleanliness) =>  {
     })
 }
 
-const getByID = (id) => {
-
-}
-
 const showAllItems = (items) => {
   $("#garage-inventory").empty()
   garageNumbers()
