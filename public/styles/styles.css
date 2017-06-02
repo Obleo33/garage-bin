@@ -4,6 +4,10 @@ body {
                 sans-serif;
 }
 
+button:focus {
+  outline : none !important;
+}
+
 .title-bar {
   display          : flex;
   height           : 100px;
@@ -47,6 +51,13 @@ body {
   flex-direction : column;
 }
 
+#sort-button:hover {
+  border           : none;
+  border-radius    : 5px;
+  background-color : lightgray;
+  cursor           : pointer;
+}
+
 #inventory-header {
   display         : flex;
   margin-bottom   : 10px;
@@ -63,11 +74,8 @@ body {
   font-weight : 700;
 }
 
-.stats:hover {
-  cursor : pointer;
-}
-
 #garage-inventory {
+  margin : 10px 0;
   border : 1px solid black;
 }
 
@@ -78,6 +86,12 @@ body {
   border          : 1px solid black;
   align-items     : center;
   justify-content : center;
+}
+
+.garage-list-item:hover {
+  color            : hotpink;
+  background-color : black;
+  cursor           : pointer;
 }
 
 .item-name {
@@ -94,8 +108,11 @@ body {
 }
 
 .item-card {
-  padding     : 10px;
-  font-weight : 400;
+  padding          : 10px;
+  color            : white;
+  border-radius    : 10px;
+  background-color : black;
+  font-weight      : 400;
 }
 
 .item-card span {
