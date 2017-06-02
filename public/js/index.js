@@ -30,21 +30,21 @@ const showAllItems = (items) => {
   $("#garage-inventory").empty()
   items.map(item => {
     $('#garage-inventory').append(`
-      <div class="garage-list-item">
-        <h3 id="${item.id}" class="item-name">${item.name}</h3>
+      <div data-item-id="${item.id}" class="garage-list-item">
+        <h3 id="${item.id}" data-item-id="${item.id}" class="item-name">${item.name}</h3>
       </div>
     `)
   })
   garageNumbers()
 }
 
-$('#garage-inventory').on('click', $('.item-name'), (e) => {
-  $('#item-detail').empty()
-
-  fetch(`/api/v1/garage/${e.target.id}`)
+$('#garage-inventory').on('click', $('.garage-list-item'), (e) => {
+  fetch(`/api/v1/garage/${$(e.target).data('itemId')}`)
   .then(response => response.json())
   .then(array => array[0])
   .then(item => {
+    console.log(item);
+    $('#item-detail').empty()
     $('#item-detail').append(`
       <div class="item-card">
         <h2><span>Name: </span>${item.name}</h2>
